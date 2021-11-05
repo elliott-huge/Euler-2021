@@ -11,7 +11,8 @@ namespace CSharpEuler
             //System.Console.WriteLine(Fibonacci());
             //System.Console.WriteLine(LargestPrimeFactor(600851475143));
             //System.Console.WriteLine(BiggestPalindrome(1000));
-            System.Console.WriteLine(SmallestMultiple());
+            //System.Console.WriteLine(SmallestMultiple());
+            System.Console.WriteLine(SumSquareDiff(100));
         }
 
         static int ThreeFive()
@@ -149,5 +150,17 @@ namespace CSharpEuler
             return smallest;
         }
 
+
+        static long SumSquareDiff(long largest)
+        {
+            long sumSquare = 0;
+            long sum = 0;
+            for (long i = 1; i <= largest; i++)
+            {
+                sumSquare += i*i;
+                sum += i;
+            }
+            return (sum*sum) - sumSquare;
+        }
     }
 }
