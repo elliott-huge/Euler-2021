@@ -10,7 +10,8 @@ namespace CSharpEuler
             //System.Console.WriteLine(ThreeFive());
             //System.Console.WriteLine(Fibonacci());
             //System.Console.WriteLine(LargestPrimeFactor(600851475143));
-            System.Console.WriteLine(BiggestPalindrome(1000));
+            //System.Console.WriteLine(BiggestPalindrome(1000));
+            System.Console.WriteLine(SmallestMultiple());
         }
 
         static int ThreeFive()
@@ -124,5 +125,29 @@ namespace CSharpEuler
                 }
             return biggest;
         }
+
+        static int SmallestMultiple()
+        {
+            int smallest = 0;
+            for (int i = 20;; i += 20)
+            {
+                bool isMultiple = true;
+                for (int j = 19; j >= 11; j--)
+                {
+                    if (i % j != 0)
+                    {
+                        isMultiple = false;
+                    }
+                }
+
+                if (isMultiple)
+                {
+                    smallest = i;
+                    break;
+                }
+            }
+            return smallest;
+        }
+
     }
 }
