@@ -12,7 +12,8 @@ namespace CSharpEuler
             //System.Console.WriteLine(LargestPrimeFactor(600851475143));
             //System.Console.WriteLine(BiggestPalindrome(1000));
             //System.Console.WriteLine(SmallestMultiple());
-            System.Console.WriteLine(SumSquareDiff(100));
+            //System.Console.WriteLine(SumSquareDiff(100));
+            System.Console.WriteLine(PrimeFinder(10001));
         }
 
         static int ThreeFive()
@@ -57,13 +58,13 @@ namespace CSharpEuler
 
         static bool CheckIsPrime(long value)
         {
+            if (value <= 1)
+                return false;
 
             for (long i = 2; i <= value/2; i++)
             {
-                if (value % i == 0)
-                {
+                if (value % i == 0 & i != value)
                     return false;
-                }
             }
             return true;
         }
@@ -161,6 +162,23 @@ namespace CSharpEuler
                 sum += i;
             }
             return (sum*sum) - sumSquare;
+        }
+
+        static long PrimeFinder(long nthPrime)
+        {
+            long currPrime = 0;
+            for (long i = 1; i <= nthPrime; i++)
+            {
+                for (long j = currPrime + 1;; j++)
+                {
+                    if (CheckIsPrime(j))
+                    {
+                        currPrime = j;
+                        break;
+                    }
+                }
+            }
+            return currPrime;
         }
     }
 }
